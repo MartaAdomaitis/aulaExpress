@@ -1,5 +1,6 @@
 const express = require("express")
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
+const { response } = require("express");
 
 const server = express()
 
@@ -16,12 +17,11 @@ server.get("/usuarios/:id", (req, res) => {
     res.send(aux)
     })
 
-    server.post("/usuarios", bodyParser, (req, res) => {
+    server.post("/usuarios", jsonParser, (req, res) => {
         console.log(req.body)
+        res.send(req.body)
          })
 
     console.log("Servidor rodando")
-
-
 
 server.listen(3000)
