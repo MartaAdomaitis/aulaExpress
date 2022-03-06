@@ -17,7 +17,7 @@ server.get("/usuarios/:id", (req, res) => {
     res.send(aux)
     })
 
-    server.post("/usuarios", jsonParser, (req, res) => {
+    server.post("/usuarios", bodyParser, (req, res) => {
         console.log(req.body)
         res.send(req.body)
          })
