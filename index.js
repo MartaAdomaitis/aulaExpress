@@ -1,4 +1,5 @@
 const express = require("express")
+const bodyParser = require("body-parser")
 
 const server = express()
 
@@ -10,14 +11,17 @@ const usuarios = [{id:1, nome:"Marta", sobrenome:"Adomaitis"},
  });
 
 server.get("/usuarios/:id", (req, res) => {
-
    const {id} = req.params
-   
    const aux = usuarios.find((usuarios) => usuarios.id == id)
-
     res.send(aux)
     })
 
+    server.post("/usuarios", bodyParser, (req, res) => {
+        console.log(req.body)
+         })
+
     console.log("Servidor rodando")
+
+
 
 server.listen(3000)
